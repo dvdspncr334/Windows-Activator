@@ -20,17 +20,17 @@ Ping www.google.nl -n 1 -w 1000
 cls
 
 
-::if errorlevel 1 (
-::echo Please check your Internet connection
-::timeout /t 4
-::cls
-::goto InternetChecker
-::) else (
-::echo Your Internet is connected :D
-::timeout /t 4
-::cls
-::goto GetWindowsVersion
-::)
+if errorlevel 1 (
+echo Please check your Internet connection
+timeout /t 4
+cls
+goto InternetChecker
+) else (
+echo Your Internet is connected :D
+timeout /t 4
+cls
+goto GetWindowsVersion
+)
 
 
 
@@ -206,5 +206,9 @@ cls
 echo Thank you for using Windows Activator, Your Computer Will Restart now.
 set /p m=Is this ok:
 if %m%==y (shutdown /r )
+if %m%==yes (shutdown /r )
+if %m%==YES (shutdown /r )
 if %m%==n (exit)
+if %m%==no (exit)
+if %m%==NO (exit)
 
